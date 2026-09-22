@@ -1,0 +1,10 @@
+# respaldos y versiones viejas del generador (quedan en la máquina, no en la web)
+tools/*respaldo*
+tools/*_v1*
+tools/*_v2*
+tools/*_v3*
+tools/*_v4*
+tools/__pycache__/
+tools/columnas/
+Thumbs.db
+desktop.ini

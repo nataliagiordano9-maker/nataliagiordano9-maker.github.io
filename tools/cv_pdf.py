@@ -230,11 +230,14 @@ def bloque(h, desde, hasta, puesto, empresa, lugar, desc, lang, c):
     h.y = min(h.y, arriba - 7 * MM) - 2.2 * MM
 
 
-def generar(lang):
+def generar(lang, con_foto=True):
+    """con_foto=False para Países Bajos, Noruega e Islandia, donde lo habitual es
+    el CV sin fotografía por políticas contra la discriminación."""
     build.LANG = lang
     c = CV[lang]
     t = build.t
-    destino = os.path.join(RAIZ, "assets", "cv", "CV-Natalia-Giordano-%s.pdf" % lang)
+    nombre = "CV-Natalia-Giordano-%s%s.pdf" % (lang, "" if con_foto else "-sin-foto")
+    destino = os.path.join(RAIZ, "assets", "cv", nombre)
     os.makedirs(os.path.dirname(destino), exist_ok=True)
 
     lienzo = canvas.Canvas(destino, pagesize=A4)
@@ -243,8 +246,8 @@ def generar(lang):
     h = Hoja(lienzo)
 
     # ── cabecera ──────────────────────────────────────────────────────────────
-    foto = os.path.join(RAIZ, "assets", "img", "nati-retrato.jpg")
-    hay_foto = os.path.exists(foto)
+    foto = os.path.join(RAIZ, "assets", "img", "nati-cv.jpg")
+    hay_foto = con_foto and os.path.exists(foto)
     ancho_txt = (ANCHO - 2 * MARGEN - FOTO - 6 * MM) if hay_foto else (ANCHO - 2 * MARGEN)
     if hay_foto:
         lienzo.drawImage(ImageReader(foto), ANCHO - MARGEN - FOTO, ALTO - MARGEN - FOTO,
@@ -325,5 +328,5 @@ def generar(lang):
 
 
 if __name__ == "__main__":
-    peor = min(generar(c) for c in ("es", "en", "it"))
+    peor = min(generar(c, f) for c in ("es", "en", "it") for f in (True, False))
     sys.exit(0 if peor >= 0 else 1)

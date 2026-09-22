@@ -304,3 +304,10 @@ html:not(.js) .serie-marco img:first-child { opacity: 1; }
 [data-reveal] { opacity: 0; transform: translateY(12px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 [data-reveal].is-visible { opacity: 1; transform: none; }
 html:not(.js) [data-reveal] { opacity: 1; transform: none; }
+
+.ficha-cv { margin-top: 2rem; }
+
+/* Hero · las dos fotos se cruzan solas */
+.hero-foto-doble .foto-alt { position: absolute; inset: 0; opacity: 0; object-position: center 42%; animation: fotoCruce 14s var(--ease) infinite; }
+@keyframes fotoCruce { 0%, 40% { opacity: 0; } 50%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .hero-foto-doble .foto-alt { animation: none; } }

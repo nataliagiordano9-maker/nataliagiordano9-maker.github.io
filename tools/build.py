@@ -270,7 +270,9 @@ def hero_puerta(k):
     {"".join(f'<p class="hero-linea">{e(x.strip())}</p>' for x in t(p["linea"]).split("<br>"))}
     <p class="hero-disp mono">{e(t(p["disponible"]))}</p>
   </div>
-  <div class="hero-foto"><img src="{A("assets/img/nati-carnet.webp")}" alt="Natalia Giordano" loading="eager"></div>
+  <div class="hero-foto hero-foto-doble">
+    <img src="{A("assets/img/nati-carnet.webp")}" alt="Natalia Giordano" loading="eager">
+    <img class="foto-alt" src="{A("assets/img/nati-sidney.webp")}" alt="" aria-hidden="true" loading="eager"></div>
 </section>
 """
 
@@ -479,7 +481,9 @@ def pagina_index():
     <h1 class="hero-titulo">Natalia Giordano.</h1>
     <p class="hero-linea">{e(t("Ingeniera civil y diseñadora gráfica argentina, viviendo actualmente en Valencia, España. Elige el área que te interesa: verás primero lo que buscas y, debajo, toda la trayectoria."))}</p>
   </div>
-  <div class="hero-foto"><img src="{A("assets/img/nati-carnet.webp")}" alt="Natalia Giordano" loading="eager"></div>
+  <div class="hero-foto hero-foto-doble">
+    <img src="{A("assets/img/nati-carnet.webp")}" alt="Natalia Giordano" loading="eager">
+    <img class="foto-alt" src="{A("assets/img/nati-sidney.webp")}" alt="" aria-hidden="true" loading="eager"></div>
 </section>
 <section class="bloque bloque-puertas">
   <div class="puertas">{puertas}</div>

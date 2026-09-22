@@ -230,13 +230,15 @@ def bloque(h, desde, hasta, puesto, empresa, lugar, desc, lang, c):
     h.y = min(h.y, arriba - 7 * MM) - 2.2 * MM
 
 
-def generar(lang, con_foto=True):
-    """con_foto=False para Países Bajos, Noruega e Islandia, donde lo habitual es
-    el CV sin fotografía por políticas contra la discriminación."""
+def generar(lang, con_foto=False):
+    """Sin foto por defecto (decisión de ella, 2026-09-22): la carta siempre lleva el
+    enlace al portafolio, donde su cara ya está, así que el PDF no la necesita y así
+    vale igual en España que en Países Bajos, Noruega o Islandia, donde lo habitual es
+    el CV sin fotografía. con_foto=True sigue funcionando si alguna vez hace falta."""
     build.LANG = lang
     c = CV[lang]
     t = build.t
-    nombre = "CV-Natalia-Giordano-%s%s.pdf" % (lang, "" if con_foto else "-sin-foto")
+    nombre = "CV-Natalia-Giordano-%s%s.pdf" % (lang, "-con-foto" if con_foto else "")
     destino = os.path.join(RAIZ, "assets", "cv", nombre)
     os.makedirs(os.path.dirname(destino), exist_ok=True)
 
@@ -328,5 +330,5 @@ def generar(lang, con_foto=True):
 
 
 if __name__ == "__main__":
-    peor = min(generar(c, f) for c in ("es", "en", "it") for f in (True, False))
+    peor = min(generar(c) for c in ("es", "en", "it"))
     sys.exit(0 if peor >= 0 else 1)

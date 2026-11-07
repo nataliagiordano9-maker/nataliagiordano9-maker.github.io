@@ -3,17 +3,18 @@
    1. Tokens · claro por defecto, oscuro con [data-tema="oscuro"]
    ============================================================= */
 :root {
-  --bg: #F4F1EA;
-  --bg-2: #ECE8DF;
+  --bg: #FAF8F4;
+  --bg-2: #F4EFE6;
   --bg-3: #FFFFFF;
   --fg: #1C1A17;
-  --fg-2: #5B5650;
-  --fg-3: #8E887F;
+  --fg-2: #544138;
+  --fg-3: #8C7B70;
   --linea: rgba(28,26,23,.14);
   --linea-2: rgba(28,26,23,.32);
   --inv-bg: #1C1A17;
-  --inv-fg: #F4F1EA;
-  --acento: #B5472C;
+  --inv-fg: #FAF8F4;
+  --acento: #E2703A;
+  --acento-txt: #9E4217;
   --sombra: 0 24px 50px -30px rgba(28,26,23,.35);
 
   --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
@@ -35,7 +36,8 @@
   --linea-2: rgba(236,232,223,.34);
   --inv-bg: #ECE8DF;
   --inv-fg: #15161A;
-  --acento: #D9714F;
+  --acento: #E2703A;
+  --acento-txt: #E2703A;
   --sombra: 0 24px 50px -30px rgba(0,0,0,.7);
   color-scheme: dark;
 }
@@ -77,7 +79,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 300; line-height: 1; letter
 .correo-titulo { color: var(--fg-3); text-transform: uppercase; letter-spacing: .06em; }
 .correo-dir { font-family: var(--serif); font-size: clamp(1.15rem, 3.4vw, 1.6rem); font-weight: 300; letter-spacing: -.01em; word-break: break-all; border-bottom: 1px solid var(--linea-2); padding-bottom: .3rem; justify-self: center; }
 .correo-dir:hover { border-color: var(--acento); }
-.correo-estado { min-height: 1.2em; color: var(--acento); }
+.correo-estado { min-height: 1.2em; color: var(--acento-txt); }
 .correo-opciones { display: grid; gap: .6rem; }
 .correo-opciones .btn { text-align: center; white-space: nowrap; padding-inline: 1.1rem; font-size: .7rem; min-width: 0; }
 .correo-cerrar { color: var(--fg-3); padding: .6rem; }
@@ -132,7 +134,7 @@ html.con-caja { overflow: hidden; }
 .hero-titulo { font-size: clamp(2.6rem, 7.4vw, 6.4rem); font-weight: 300; letter-spacing: -.03em; line-height: .95; max-width: 15ch; text-transform: none; }
 .hero-linea { font-family: var(--serif); font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-weight: 300; margin-top: 1.6rem; max-width: 30em; line-height: 1.45; color: var(--fg-2); text-align: justify; hyphens: manual; -webkit-hyphens: manual; text-wrap: initial; }
 .hero-linea + .hero-linea { margin-top: .6rem; }
-.hero-disp { margin-top: 1.4rem; color: var(--acento); text-transform: uppercase; letter-spacing: .06em; }
+.hero-disp { margin-top: 1.4rem; color: var(--acento-txt); text-transform: uppercase; letter-spacing: .06em; }
 .hero-botones { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.4rem; }
 .hero-foto { aspect-ratio: 4 / 5; width: min(100%, 20rem); justify-self: start; background: var(--bg-2); position: relative; overflow: clip; }
 .hero-foto img { width: 100%; height: 100%; object-fit: cover; }
@@ -171,7 +173,7 @@ html.con-caja { overflow: hidden; }
 .puerta:hover { border-top-color: var(--acento); }
 .puerta-nombre { font-family: var(--serif); font-weight: 300; font-size: clamp(1.6rem, 2.6vw, 2.2rem); line-height: 1.05; letter-spacing: -.02em; }
 .puerta-linea { font-size: .96rem; line-height: 1.55; color: var(--fg-2); text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
-.puerta-disp { color: var(--acento); text-transform: uppercase; letter-spacing: .06em; font-size: .68rem; }
+.puerta-disp { color: var(--acento-txt); text-transform: uppercase; letter-spacing: .06em; font-size: .68rem; }
 .puerta-ir { align-self: end; font-family: var(--mono); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; display: inline-flex; align-items: center; gap: .6rem; }
 .puerta-ir::after { content: ""; width: 1.4rem; height: 1px; background: currentColor; transition: width .5s var(--ease); }
 .puerta:hover .puerta-ir::after { width: 2.6rem; }
@@ -249,7 +251,7 @@ html.con-caja { overflow: hidden; }
 .tl-empresa { color: var(--fg-2); font-size: .95rem; }
 .tl-tareas { margin-top: .25rem; max-width: 46rem; color: var(--fg-2); }
 .tl-sector { display: inline-block; margin-top: .5rem; font-family: var(--mono); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-3); }
-.tl-item.is-propio .tl-sector { color: var(--acento); }
+.tl-item.is-propio .tl-sector { color: var(--acento-txt); }
 :root:not([data-puerta="index"]) .tl-item:not(.is-propio):not(.sector-formacion):not(.sector-viaje) .tl-cuerpo { opacity: .6; transition: opacity .3s; }
 :root:not([data-puerta="index"]) .tl-item:not(.is-propio):hover .tl-cuerpo { opacity: 1; }
 @media (min-width: 720px) {
